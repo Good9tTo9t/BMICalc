@@ -21,23 +21,23 @@ namespace BMICalc
 
         private void Enter_Click(object sender, EventArgs e)
         {
-            if (NullandZeroCheck(Height.Text) && NullandZeroCheck(Weight.Text) && (meter.Checked || centi.Checked)) //check if textboxes are empty
+            if (NullandZeroCheck(Height.Text) && NullandZeroCheck(Weight.Text) && (meter.Checked || centi.Checked)) //檢查錯誤的輸入值或未選擇radioButton
             {
                 double BMI = 0, h, w;
                 h = double.Parse(Height.Text);
                 w = double.Parse(Weight.Text);
 
-                if (meter.Checked)
+                if (meter.Checked) //公尺
                 {
                     BMI = w / Math.Pow(h, 2);
                 }
-                else if (centi.Checked)
+                else if (centi.Checked) //公分
                 {
                     BMI = w / Math.Pow(h / 100, 2);
                 }
 
-                BMIval.Text = Math.Round(BMI, 2).ToString();
-                BMIval.Text += "Kg/m^2";
+                BMIval.Text = Math.Round(BMI, 2).ToString(); //顯示BMI
+                BMIval.Text += "Kg/m^2"; //顯示單位
 
                 if (BMI < 18.5)
                 {
