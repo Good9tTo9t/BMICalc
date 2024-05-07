@@ -34,7 +34,7 @@ namespace BMICalc
                 else if (centi.Checked) //公分
                 {
                     BMI = w / Math.Pow(h / 100, 2);
-                }
+                } //計算BMI
 
                 BMIval.Text = Math.Round(BMI, 2).ToString(); //顯示BMI
                 BMIval.Text += "Kg/m^2"; //顯示單位
@@ -54,10 +54,9 @@ namespace BMICalc
                 else
                 {
                     comment.Text = "「肥胖」";
-                } //comment
-
+                } // 顯示建議評語
             }
-            else
+            else //字串為空或0或未勾選單位
             {
                 MessageBox.Show("輸入值有誤", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -73,7 +72,7 @@ namespace BMICalc
             {
                 return true;
             }
-        }
+        }//檢查字串是否為0或空
 
         private void CheckDigit(object sender, KeyPressEventArgs e)
         {
@@ -87,6 +86,6 @@ namespace BMICalc
                 e.Handled = true;
             }
             // only the first decimal point can be entered
-        }
+        }//所有輸入欄的KeyPress參考此函式即可限定數字輸入
     }
 }
