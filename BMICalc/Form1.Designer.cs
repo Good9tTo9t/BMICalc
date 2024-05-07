@@ -177,7 +177,7 @@ namespace BMICalc
             this.BMIval.Size = new System.Drawing.Size(219, 61);
             this.BMIval.TabIndex = 12;
             this.BMIval.Text = "尚未輸入";
-            this.BMIval.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BMIval.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Enter
             // 
