@@ -25,6 +25,29 @@ namespace BMICalc
             this.Text = "BMI Calculator"; //設定視窗標題
         }
 
+        private void checkDigit(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            // only numbers can be entered
+            if ((e.KeyChar == '.') && ((sender as System.Windows.Forms.TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+            // only the first decimal point can be entered
+        }
 
+        private bool NullandZeroCheck(string txt)
+        {
+            if (String.IsNullOrEmpty(txt) || !double.TryParse(txt, out _) || double.Parse(txt) == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
     }
 }
