@@ -25,7 +25,30 @@ namespace BMICalc
             this.Text = "BMI Calculator"; //設定視窗標題
         }
 
-        private void checkDigit(object sender, KeyPressEventArgs e)
+        private void Enter_Click(object sender, EventArgs e)
+        {
+            if (NullandZeroCheck(Height.Text) && NullandZeroCheck(Weight.Text)) //check if textboxes are empty
+            {
+                //do calculation
+            } else
+            {
+                MessageBox.Show("輸入值有誤", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private bool NullandZeroCheck(string txt)
+        {
+            if (String.IsNullOrEmpty(txt) || !double.TryParse(txt, out _) || double.Parse(txt) == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private void CheckDigit(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
@@ -38,16 +61,5 @@ namespace BMICalc
             }
             // only the first decimal point can be entered
         }
-
-        private bool NullandZeroCheck(string txt)
-        {
-            if (String.IsNullOrEmpty(txt) || !double.TryParse(txt, out _) || double.Parse(txt) == 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
     }
 }
